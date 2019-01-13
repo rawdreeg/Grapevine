@@ -4,6 +4,13 @@
 const Model = use('Model')
 
 class Fav extends Model {
+    post () {
+        return this.belongsTo('App/Models/Post')
+    }
+
+    user () {
+        return this.belongsTo('App/Models/User')
+    }
 }
 
 module.exports = Fav

@@ -43,6 +43,10 @@ class User extends Model {
     return this.hasMany('App/Models/Reply')
   }
 
+  favs () {
+    return this.hasMany('App/Models/Fav')
+  }
+
   followers () {
     return this.belongsToMany(
         'App/Models/User',
