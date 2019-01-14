@@ -178,12 +178,12 @@ class UserController {
         })
     }
 
-    async follow ({ params, auth, response }) {
+    async follow({ request, auth, response }) {
         // get currently authenticated user
         const user = auth.current.user
     
         // add to user's followers
-        await user.following().attach(params.id)
+        await user.following().attach(request.input('user_id'))
     
         return response.json({
             status: 'success',

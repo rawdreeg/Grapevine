@@ -39,16 +39,14 @@ Route.get(':username', 'UserController.showProfile')
 
 Route.group(() => {
   Route.get('/users_to_follow', 'UserController.usersToFollow');
-  Route.post('/follow/:id', 'UserController.follow')
+  Route.post('/follow', 'UserController.follow')
   Route.delete('/unfollow/:id', 'UserController.unfollow')
-  
+  Route.get('/timeline', 'UserController.timeline')
 })
   .prefix('users')
   .middleware(['auth:jwt'])
 
 //posts
-
-Route.get('/timeline', 'UserController.timeline').middleware(['auth:jwt'])
 Route.post('/post', 'PostController.post').middleware(['auth:jwt'])
 Route.get('/posts/:id', 'PostController.show')
 Route.post('/posts/reply/:id', 'PostController.reply').middleware(['auth:jwt']);
